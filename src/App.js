@@ -4,16 +4,19 @@ import { Route } from 'react-router-dom';
 import jsonServerProvider from 'ra-data-json-server';
 import { UserList } from './users';
 import MyLayout from './MyLayout';
-import MUIButton from './MUIButton';
+import authProvider from "./authProvider";
+import { PostList } from "./posts";
+import Home from "./Home";
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 const App = () => (
-  <Admin dataProvider={dataProvider} layout={MyLayout}>
-    <Resource name="users" list={UserList} />
+  <Admin dataProvider={dataProvider} layout={MyLayout} authProvider={authProvider}>
     <CustomRoutes>
-      <Route path="/button" element={<MUIButton />} />
+      <Route path="/" element={<Home />} />
     </CustomRoutes>
+    <Resource name="users" list={UserList} />
+    <Resource name="posts" list={PostList} />
   </Admin>
 );
 
