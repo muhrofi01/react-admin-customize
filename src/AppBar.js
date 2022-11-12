@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AppBar, Logout, Menu, UserMenu } from 'react-admin';
+import { AppBar, Logout, Menu, UserMenu, Login} from 'react-admin';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -22,10 +22,8 @@ const ConfigurationMenu = () => {
 };
 
 const LoginMenu = () => {
-    return (
-        <Menu>
-            <Menu.Item to="/users" primaryText="Login" leftIcon={<LoginIcon/>} />
-        </Menu>
+    return ( 
+            <Menu.Item sx={{ color: 'black' }} to="/login" primaryText="Login" leftIcon={<LoginIcon/>} />
     );
 };
 
