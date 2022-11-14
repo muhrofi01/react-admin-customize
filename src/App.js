@@ -12,6 +12,8 @@ import RedirectLogin from "./Redirect";
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
 const App = () => {
+  const [isLogin, setIsLogin] = React.useState(false);
+
   return (
     <Admin dataProvider={dataProvider} layout={MyLayout} loginPage={<RedirectLogin />} authProvider={authProvider}>
       <CustomRoutes>
