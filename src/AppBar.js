@@ -1,16 +1,13 @@
 import LoginIcon from "@mui/icons-material/Login";
 import * as React from "react";
-import { AppBar, Logout, Menu, UserMenu } from "react-admin";
-
-const checkLogin = () => {
-  return localStorage.getItem("username") ? true : false;
-};
-
-console.log(checkLogin());
+import { AppBar, Logout, Menu, useAuthState, UserMenu } from "react-admin";
 
 // It's important to pass the ref to allow MUI to manage the keyboard navigation
+
 const LoginMenu = () => {
-  if (checkLogin() == true) {
+  const { authenticated } = useAuthState();
+
+  if (authenticated) {
     return <Logout sx={{ color: "black" }} />;
   } else {
     return (
@@ -19,7 +16,6 @@ const LoginMenu = () => {
         to="/login"
         primaryText="Login"
         leftIcon={<LoginIcon />}
-        disabled={checkLogin()}
       />
     );
   }
