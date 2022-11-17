@@ -3,6 +3,7 @@ import * as React from "react";
 import { AppBar, Logout, Menu, UserMenu } from "react-admin";
 
 // It's important to pass the ref to allow MUI to manage the keyboard navigation
+
 const LoginMenu = () => {
   return (
     <Menu.Item
